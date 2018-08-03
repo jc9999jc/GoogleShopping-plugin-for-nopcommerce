@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Nop.Web.Framework.Mvc.ModelBinding;
 using Nop.Web.Framework.Mvc.Models;
@@ -13,6 +13,8 @@ namespace Nop.Plugin.Feed.GoogleShopping.Models
             AvailableCurrencies = new List<SelectListItem>();
             AvailableGoogleCategories = new List<SelectListItem>();
             GeneratedFiles = new List<GeneratedFileModel>();
+            SelectedCategoryIds = new List<int>();
+            AvailableCategories = new List<SelectListItem>();
         }
 
         [NopResourceDisplayName("Plugins.Feed.GoogleShopping.ProductPictureSize")]
@@ -47,6 +49,10 @@ namespace Nop.Plugin.Feed.GoogleShopping.Models
             public string StoreName { get; set; }
             public string FileUrl { get; set; }
         }
+
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.Categories")]
+        public IList<int> SelectedCategoryIds { get; set; }
+        public IList<SelectListItem> AvailableCategories { get; set; }
 
         public class GoogleProductModel : BaseNopModel
         {
